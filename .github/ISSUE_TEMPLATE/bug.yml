@@ -1,0 +1,72 @@
+name: Bug report
+description: Something behaves differently from how it should.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One tracker for every mod - this form asks which one you mean, so there is no wrong place to file it.
+        If it is a question or an idea rather than a bug, the [Discord](https://discord.com/invite/9Cw5rHfUq7) is quicker.
+
+  - type: dropdown
+    id: mod
+    attributes:
+      label: Which mod?
+      options:
+        - Click Out
+    validations:
+      required: true
+
+  - type: input
+    id: mod-version
+    attributes:
+      label: Mod version
+      description: The version number shown in the mod list.
+      placeholder: "0.1.1"
+    validations:
+      required: true
+
+  - type: input
+    id: game-version
+    attributes:
+      label: Minecraft and loader versions
+      placeholder: "26.3, Fabric Loader 0.20.1"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you expected, and what actually happened instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open a crafting table
+        2. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: log
+    attributes:
+      label: Log
+      description: The relevant part of `latest.log`, if the game printed anything. Paste it as text, not a screenshot.
+      render: text
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: only-this-mod
+    attributes:
+      label: Is it still a bug with only this mod installed?
+      description: Narrows down whether another mod is involved. Not required, but it saves a round trip.
+      options:
+        - label: I tried with a profile containing only this mod and Fabric API
+          required: false
