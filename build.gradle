@@ -1,0 +1,7 @@
+plugins {
+	// Declared once here, applied by each mod's own build.gradle without a version.
+	id 'net.fabricmc.fabric-loom' version "${loom_version}" apply false
+}
+
+// Nothing else belongs at the root. Shared *versions* live in gradle.properties;
+// shared *code* would have to be its own module, and we don't want any yet.

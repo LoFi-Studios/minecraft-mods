@@ -1,0 +1,14 @@
+# Build output and machine state. Never commit either.
+.gradle/
+build/
+run/
+
+# Editors
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# OS and logs
+.DS_Store
+*.log

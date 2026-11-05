@@ -1,0 +1,15 @@
+pluginManagement {
+    repositories {
+        maven { name = 'Fabric'; url = 'https://maven.fabricmc.net/' }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'lofi-mods'
+
+// One mod, one leaf. Generated when this repo is published: only released mods
+// are listed, so this tree always builds and every file in it belongs to a jar
+// someone can actually download.
+
+include 'click-out'

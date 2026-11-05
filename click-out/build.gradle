@@ -1,0 +1,59 @@
+plugins {
+	id 'net.fabricmc.fabric-loom'
+}
+
+// Per-mod values. Everything version-related about *Fabric* is in the root
+// gradle.properties, shared by every mod in this repo.
+version = '0.1.1'
+group = 'net.lofistudios'
+
+loom {
+	// main = common, client = client-only. The mixin here targets a client-only
+	// class, so it lives in src/client and never reaches a dedicated server.
+	splitEnvironmentSourceSets()
+
+	mods {
+		"clickout" {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	// No Fabric API on purpose. This mod is one mixin; it uses nothing from it.
+}
+
+processResources {
+	// The local matters. `filesMatching` runs at EXECUTION time, and referencing
+	// `project` from inside it is unsupported under Gradle's configuration cache.
+	def modVersion = project.version
+	inputs.property "version", modVersion
+
+	filesMatching("fabric.mod.json") {
+		expand "version": modVersion
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 25
+}
+
+java {
+	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
+}
+
+jar {
+	// Same reason as processResources: `rename` executes after configuration.
+	def projectName = project.name
+	inputs.property "projectName", projectName
+
+	from(rootProject.file("LICENSE")) {
+		rename { "${it}_${projectName}" }
+	}
+}

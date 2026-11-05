@@ -1,0 +1,27 @@
+{
+	"schemaVersion": 1,
+	"id": "clickout",
+	"version": "${version}",
+	"name": "Click Out",
+	"description": "Click outside of a block GUI and it closes the GUI.",
+	"authors": [
+		"LoFi"
+	],
+	"contact": {
+		"sources": "https://github.com/LoFi-Studios/mods/tree/main/click-out"
+	},
+	"license": "MIT",
+	"icon": "assets/clickout/icon.png",
+	"environment": "client",
+	"mixins": [
+		{
+			"config": "clickout.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.20.1",
+		"minecraft": "~26.3",
+		"java": ">=25"
+	}
+}
