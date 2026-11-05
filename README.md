@@ -13,7 +13,7 @@ Each folder is one mod: its source, and a `README.md` saying what it does and wh
 ## Where to say things
 
 - **Discord** - [join the server](https://discord.com/invite/9Cw5rHfUq7). Questions, feedback, ideas, anything that isn't a bug report.
-- **Issues** - [open one](https://github.com/LoFi-Studios/mods/issues). Bugs and requests. There is one tracker for every mod; the issue template asks which one you mean, so there is no wrong place to file it.
+- **Issues** - [open one](https://github.com/LoFi-Studios/minecraft-mods/issues). Bugs and requests. There is one tracker for every mod; the issue template asks which one you mean, so there is no wrong place to file it.
 
 ## Building
 
